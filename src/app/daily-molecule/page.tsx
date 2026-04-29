@@ -85,8 +85,24 @@ export default function DailyMolecule() {
         <div className="bg-[#111] border border-[#222] rounded-3xl p-8">
           <h3 className="text-2xl font-bold mb-4 text-green-400">Question 3</h3>
           <p className="text-lg text-gray-200 mb-6">
-            Benzocaine can be synthesized from <strong>4-ethylphenylamine</strong> in a multi-step process. Identify the reagents required for the oxidation of the ethyl side-chain and the final esterification step.
+            Benzocaine can be synthesized from the starting molecule shown below in two steps.
           </p>
+          
+          <div className="flex justify-center mb-6">
+            <div className="bg-[#0a0a0a] border border-[#222] p-4 rounded-2xl">
+              <img 
+                src="/starting_molecule.png" 
+                alt="Starting molecule structure" 
+                className="max-h-32 invert opacity-90"
+              />
+              <p className="text-center text-gray-500 text-xs mt-2">4-ethylphenylamine</p>
+            </div>
+          </div>
+
+          <p className="text-lg text-gray-200 mb-6">
+            Provide the reagents and conditions for each step to convert this molecule into Benzocaine.
+          </p>
+          
           <button 
             onClick={() => toggleAnswer('q3')} 
             className="px-6 py-2 bg-[#1f1f1f] rounded-lg font-semibold hover:bg-[#2a2a2a] transition-colors text-white"
@@ -96,14 +112,16 @@ export default function DailyMolecule() {
           
           {openAnswers['q3'] && (
             <div className="mt-6 p-6 bg-[#1a1a1a] border border-[#333] rounded-xl">
-              <ol className="list-decimal list-inside text-gray-400 space-y-4">
-                <li>
-                  <strong className="text-gray-200">Oxidation:</strong> Heat the compound with <strong>alkaline potassium manganate(VII)</strong> (KMnO₄), followed by acidification. This oxidizes the ethyl side-chain into a carboxylic acid group.
-                </li>
-                <li>
-                  <strong className="text-gray-200">Esterification:</strong> Heat the resulting acid under reflux with <strong>ethanol</strong> and <strong>concentrated sulfuric acid</strong> catalyst to form benzocaine.
-                </li>
-              </ol>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-gray-200 font-bold">Step 1: Oxidation</p>
+                  <p className="text-gray-400">Heat under reflux with <strong>alkaline potassium manganate(VII)</strong> (KMnO₄), followed by acidification. This oxidizes the ethyl side-chain to a carboxylic acid.</p>
+                </div>
+                <div>
+                  <p className="text-gray-200 font-bold">Step 2: Esterification</p>
+                  <p className="text-gray-400">Heat under reflux with <strong>ethanol</strong> and <strong>concentrated sulfuric acid</strong> catalyst to form the final ester (Benzocaine).</p>
+                </div>
+              </div>
             </div>
           )}
         </div>
