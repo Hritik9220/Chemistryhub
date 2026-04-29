@@ -34,7 +34,7 @@ export default function InorganicTrainer() {
   const [feedbackHTML, setFeedbackHTML] = useState<string>("");
 
   const pickCard = useCallback(() => {
-    let pool: Observation[] = category === "all" ? itObservationLibrary as Observation[] : (itObservationLibrary as Observation[]).filter(r => r.category === category);
+    const pool: Observation[] = category === "all" ? itObservationLibrary as Observation[] : (itObservationLibrary as Observation[]).filter(r => r.category === category);
 
     if (pool.length === 0) return null;
 

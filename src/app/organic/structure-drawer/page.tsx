@@ -40,18 +40,18 @@ export default function StructureDrawer() {
   }, [category]);
 
   const pickReaction = useCallback(() => {
-    let pool = getFilteredReactions();
+    const pool = getFilteredReactions();
     if (pool.length === 0) return null;
     
-    let typeGroups: Record<string, StructureReaction[]> = {};
-    for (let r of pool) {
+    const typeGroups: Record<string, StructureReaction[]> = {};
+    for (const r of pool) {
       if (!typeGroups[r.type]) typeGroups[r.type] = [];
       typeGroups[r.type].push(r);
     }
     
-    let types = Object.keys(typeGroups);
-    let randomType = types[Math.floor(Math.random() * types.length)];
-    let typeReactions = typeGroups[randomType];
+    const types = Object.keys(typeGroups);
+    const randomType = types[Math.floor(Math.random() * types.length)];
+    const typeReactions = typeGroups[randomType];
     
     let filtered = typeReactions.filter(r => `${r.reactant}-${r.product}` !== lastReactionId);
     if (filtered.length === 0) filtered = typeReactions;
@@ -111,17 +111,17 @@ export default function StructureDrawer() {
       return;
     }
     // @ts-ignore
-    let drawnSmiles = window.sdJsmeApplet.smiles();
+    const drawnSmiles = window.sdJsmeApplet.smiles();
     if (!drawnSmiles || drawnSmiles.trim() === '') {
       setFeedbackHTML('<span class="text-yellow-400">Please draw a structure first</span>');
       return;
     }
     
-    let drawnNorm = drawnSmiles.replace(/\s/g, '').toLowerCase();
+    const drawnNorm = drawnSmiles.replace(/\s/g, '').toLowerCase();
     if (!currentReaction) return;
     
-    let correctVariants = Array.isArray(currentReaction.smiles) ? currentReaction.smiles : [currentReaction.smiles];
-    let match = correctVariants.some(v => drawnNorm === v);
+    const correctVariants = Array.isArray(currentReaction.smiles) ? currentReaction.smiles : [currentReaction.smiles];
+    const match = correctVariants.some(v => drawnNorm === v);
     
     if (match) {
       setScore(s => {
