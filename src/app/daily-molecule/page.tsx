@@ -28,8 +28,12 @@ export default function DailyMolecule() {
 
       <div className="flex justify-center mb-10">
         <div className="bg-[#111] border border-[#222] p-8 rounded-3xl w-full max-w-md flex flex-col justify-center items-center">
-          <div className="text-8xl mb-4">🦷</div>
-          <p className="text-gray-500 text-sm">Ethyl 4-aminobenzoate</p>
+          <img 
+            src="/benzocaine.png" 
+            alt="Benzocaine structure" 
+            className="max-h-48 invert opacity-90"
+          />
+          <p className="text-gray-500 text-sm mt-4">Ethyl 4-aminobenzoate</p>
         </div>
       </div>
 
@@ -59,7 +63,7 @@ export default function DailyMolecule() {
         <div className="bg-[#111] border border-[#222] rounded-3xl p-8">
           <h3 className="text-2xl font-bold mb-4 text-green-400">Question 2</h3>
           <p className="text-lg text-gray-200 mb-6">
-            The diazonium salt formed in Question 1 can be reacted with phenol to form a brightly coloured <strong>azo dye</strong>. Name the reagents and conditions required for this coupling reaction, and describe the visual change.
+            The diazonium salt formed in Question 1 can be reacted with phenol to form a brightly coloured <strong>azo dye</strong>. Name the reagents and conditions required for this coupling reaction, and state the term used to describe the part of a molecule responsible for its colour.
           </p>
           <button 
             onClick={() => toggleAnswer('q2')} 
@@ -72,7 +76,7 @@ export default function DailyMolecule() {
             <div className="mt-6 p-6 bg-[#1a1a1a] border border-[#333] rounded-xl">
               <p className="text-gray-300 mb-2"><strong>Reagents:</strong> Phenol dissolved in <strong>aqueous sodium hydroxide</strong> (alkaline conditions).</p>
               <p className="text-gray-300 mb-4"><strong>Conditions:</strong> The mixture must be kept <strong>cold</strong>.</p>
-              <p className="text-gray-300"><strong>Visual Change:</strong> A yellow, orange, or red precipitate (the azo dye) forms. This reaction is an example of <em>electrophilic substitution</em>.</p>
+              <p className="text-gray-300"><strong>Term:</strong> The part of the compound responsible for the colour is called the <strong>chromophore</strong>.</p>
             </div>
           )}
         </div>
@@ -81,7 +85,7 @@ export default function DailyMolecule() {
         <div className="bg-[#111] border border-[#222] rounded-3xl p-8">
           <h3 className="text-2xl font-bold mb-4 text-green-400">Question 3</h3>
           <p className="text-lg text-gray-200 mb-6">
-            Benzocaine can be synthesized from <strong>4-ethylphenylamine</strong> in a multi-step process. Outline the steps required, identifying the reagents for the oxidation of the side-chain and explaining why the amine group must be protected first.
+            Benzocaine can be synthesized from <strong>4-ethylphenylamine</strong> in a multi-step process. Identify the reagents required for the oxidation of the ethyl side-chain and the final esterification step.
           </p>
           <button 
             onClick={() => toggleAnswer('q3')} 
@@ -94,13 +98,10 @@ export default function DailyMolecule() {
             <div className="mt-6 p-6 bg-[#1a1a1a] border border-[#333] rounded-xl">
               <ol className="list-decimal list-inside text-gray-400 space-y-4">
                 <li>
-                  <strong className="text-gray-200">Protection:</strong> React 4-ethylphenylamine with ethanoyl chloride to form an amide. This <strong>protects</strong> the sensitive amine group from being oxidized in the next step.
+                  <strong className="text-gray-200">Oxidation:</strong> Heat the compound with <strong>alkaline potassium manganate(VII)</strong> (KMnO₄), followed by acidification. This oxidizes the ethyl side-chain into a carboxylic acid group.
                 </li>
                 <li>
-                  <strong className="text-gray-200">Oxidation:</strong> Heat the product with <strong>alkaline potassium manganate(VII)</strong> (KMnO₄), followed by acidification. This oxidizes the ethyl side-chain into a carboxylic acid group.
-                </li>
-                <li>
-                  <strong className="text-gray-200">Esterification & Deprotection:</strong> Heat the resulting acid under reflux with <strong>ethanol</strong> and <strong>concentrated sulfuric acid</strong>. This hydrolyses the amide back to an amine while simultaneously esterifying the carboxylic acid to form benzocaine.
+                  <strong className="text-gray-200">Esterification:</strong> Heat the resulting acid under reflux with <strong>ethanol</strong> and <strong>concentrated sulfuric acid</strong> catalyst to form benzocaine.
                 </li>
               </ol>
             </div>
