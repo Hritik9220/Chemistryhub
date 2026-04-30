@@ -30,7 +30,7 @@ export default async function HistoricalMoleculePage({
     const isModerator = mod === "true";
     
     if (isModerator) {
-      const START_DATE = new Date("2026-04-29").getTime();
+      const START_DATE = new Date("2026-04-28").getTime();
       const requestedDate = new Date(date).getTime();
       const index = Math.floor((requestedDate - START_DATE) / 86400000);
       const daysSinceStart = Math.max(0, Math.floor((Date.now() - START_DATE) / 86400000));

@@ -6,8 +6,8 @@ import { supabase } from "@/lib/supabase";
 export const dynamic = "force-dynamic";
 
 export default async function DailyMolecule() {
-  // Calculate days since the feature launched (April 29, 2026)
-  const START_DATE = new Date("2026-04-29").getTime();
+  // Calculate days since the feature launched (April 28, 2026)
+  const START_DATE = new Date("2026-04-28").getTime();
   const daysSinceStart = Math.max(0, Math.floor((Date.now() - START_DATE) / 86400000));
   
   // Use direct indexing so past days don't change if we append new molecules

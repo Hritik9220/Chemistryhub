@@ -12,7 +12,7 @@ export default async function ArchivePage() {
     .order("date", { ascending: false });
 
   // Calculate future molecules for the client component to evaluate
-  const START_DATE = new Date("2026-04-29").getTime();
+  const START_DATE = new Date("2026-04-28").getTime();
   const daysSinceStart = Math.max(0, Math.floor((Date.now() - START_DATE) / 86400000));
   
   let futureMolecules: { date: string; molecule_name: string }[] = [];
