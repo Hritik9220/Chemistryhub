@@ -6,11 +6,14 @@ import QuestionCard from "@/components/QuestionCard";
 export const dynamic = "force-dynamic";
 
 export default async function HistoricalMoleculePage({ 
-  params 
+  params,
+  searchParams
 }: { 
-  params: Promise<{ date: string }> 
+  params: Promise<{ date: string }>;
+  searchParams: Promise<{ mod?: string }>;
 }) {
   const { date } = await params;
+  const { mod } = await searchParams;
 
   let currentMolecule = null;
   let isFutureModeratorPreview = false;
@@ -23,9 +26,8 @@ export default async function HistoricalMoleculePage({
     .single();
 
   if (!record) {
-    // Check if it's a future date and if the user is a moderator
-    const { data: { user } } = await supabase.auth.getUser();
-    const isModerator = user?.email === "hritiksanyal@gmail.com";
+    // Check if it's a future date and if the user is a moderator using the secret URL parameter
+    const isModerator = mod === "true";
     
     if (isModerator) {
       const START_DATE = new Date("2026-04-29").getTime();
