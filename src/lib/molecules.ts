@@ -167,7 +167,6 @@ export const molecules: Molecule[] = [
         ]
       }
     ]
-    ]
   },
   {
     id: "aspirin",
