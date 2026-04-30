@@ -48,9 +48,12 @@ export default async function DailyMolecule() {
 
   return (
     <div className="max-w-4xl mx-auto p-8 min-h-screen flex flex-col py-12">
-      <div className="mb-6">
+      <div className="mb-6 flex justify-between items-center">
         <Link href="/" className="inline-block px-6 py-3 bg-[#1f1f1f] rounded-xl text-white hover:bg-[#2a2a2a] transition-colors">
           ← Global Hub
+        </Link>
+        <Link href="/daily-molecule/archive" className="inline-block px-6 py-3 bg-[#1f1f1f] rounded-xl text-white hover:bg-[#2a2a2a] transition-colors font-semibold">
+          Archive 🗓️
         </Link>
       </div>
       
@@ -60,13 +63,18 @@ export default async function DailyMolecule() {
       </div>
 
       <div className="flex justify-center mb-10">
-        <div className="bg-[#111] border border-[#222] p-8 rounded-3xl w-full max-w-md flex flex-col justify-center items-center">
+        <div className="bg-[#111] border border-[#222] p-8 rounded-3xl w-full max-w-2xl flex flex-col justify-center items-center">
           <img 
             src={currentMolecule.image} 
             alt={`${currentMolecule.name} structure`} 
             className="max-h-48 invert opacity-90"
           />
           <p className="text-gray-500 text-sm mt-4">{currentMolecule.formula}</p>
+          {currentMolecule.description && (
+            <div className="mt-6 p-4 bg-[#1a1a1a] border border-[#333] rounded-xl text-center">
+              <p className="text-gray-300">{currentMolecule.description}</p>
+            </div>
+          )}
         </div>
       </div>
 

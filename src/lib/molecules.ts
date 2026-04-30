@@ -10,6 +10,7 @@ export interface Molecule {
   id: string;
   name: string;
   formula: string;
+  description?: string;
   image: string;
   questions: Question[];
 }
@@ -60,6 +61,7 @@ export const molecules: Molecule[] = [
     id: "lidocaine",
     name: "Lidocaine",
     formula: "2-(diethylamino)-N-(2,6-dimethylphenyl)acetamide",
+    description: "Lidocaine is a local anesthetic. It is often used mixed with a small amount of adrenaline (epinephrine) to prolong its local effects and to decrease bleeding.",
     image: "/lidocaine.png",
     questions: [
       {
