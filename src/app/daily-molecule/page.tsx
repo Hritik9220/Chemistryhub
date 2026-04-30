@@ -1,17 +1,50 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
+import { molecules } from "@/lib/molecules";
+import QuestionCard from "@/components/QuestionCard";
+import { supabase } from "@/lib/supabase";
 
-export default function DailyMolecule() {
-  const [openAnswers, setOpenAnswers] = useState<Record<string, boolean>>({});
+export const dynamic = "force-dynamic";
 
-  const toggleAnswer = (id: string) => {
-    setOpenAnswers((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
+export default async function DailyMolecule() {
+  // Calculate days since the feature launched (April 29, 2026)
+  const START_DATE = new Date("2026-04-29").getTime();
+  const daysSinceStart = Math.max(0, Math.floor((Date.now() - START_DATE) / 86400000));
+  
+  // Use direct indexing so past days don't change if we append new molecules
+  // If we run out of molecules, we just stay on the last one until a new one is added
+  const safeIndex = Math.min(daysSinceStart, molecules.length - 1);
+  const currentMolecule = molecules[safeIndex];
+
+  // Database Archiving Logic
+  if (currentMolecule) {
+    const today = new Date();
+    const dateStr = today.toISOString().split('T')[0];
+
+    const { data: existing } = await supabase
+      .from('daily_molecule_archive')
+      .select('id')
+      .eq('date', dateStr)
+      .single();
+
+    if (!existing) {
+      await supabase.from('daily_molecule_archive').insert({
+        date: dateStr,
+        molecule_id: currentMolecule.id,
+        molecule_name: currentMolecule.name,
+      });
+    }
+  }
+
+  if (!currentMolecule) {
+    return (
+      <div className="max-w-4xl mx-auto p-8 min-h-screen flex flex-col py-12 justify-center items-center">
+        <h1 className="text-3xl font-bold text-white mb-4">No Molecule Available</h1>
+        <Link href="/" className="px-6 py-3 bg-[#1f1f1f] rounded-xl text-white hover:bg-[#2a2a2a] transition-colors">
+          Return to Global Hub
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-4xl mx-auto p-8 min-h-screen flex flex-col py-12">
@@ -23,109 +56,24 @@ export default function DailyMolecule() {
       
       <div className="text-center mb-12">
         <h1 className="text-5xl font-bold mb-4 text-green-500">Daily Molecule</h1>
-        <p className="text-gray-400 text-xl">Molecule of the Day: Benzocaine</p>
+        <p className="text-gray-400 text-xl">Molecule of the Day: {currentMolecule.name}</p>
       </div>
 
       <div className="flex justify-center mb-10">
         <div className="bg-[#111] border border-[#222] p-8 rounded-3xl w-full max-w-md flex flex-col justify-center items-center">
           <img 
-            src="/benzocaine.png" 
-            alt="Benzocaine structure" 
+            src={currentMolecule.image} 
+            alt={`${currentMolecule.name} structure`} 
             className="max-h-48 invert opacity-90"
           />
-          <p className="text-gray-500 text-sm mt-4">Ethyl 4-aminobenzoate</p>
+          <p className="text-gray-500 text-sm mt-4">{currentMolecule.formula}</p>
         </div>
       </div>
 
       <div className="space-y-6">
-        {/* Q1 */}
-        <div className="bg-[#111] border border-[#222] rounded-3xl p-8">
-          <h3 className="text-2xl font-bold mb-4 text-green-400">Question 1</h3>
-          <p className="text-lg text-gray-200 mb-6">
-            Benzocaine contains a primary aromatic amine group. State the reagents and the specific temperature conditions required to convert this amine group into a <strong>diazonium salt</strong>.
-          </p>
-          <button 
-            onClick={() => toggleAnswer('q1')} 
-            className="px-6 py-2 bg-[#1f1f1f] rounded-lg font-semibold hover:bg-[#2a2a2a] transition-colors text-white"
-          >
-            {openAnswers['q1'] ? 'Hide Answer' : 'Reveal Answer'}
-          </button>
-          
-          {openAnswers['q1'] && (
-            <div className="mt-6 p-6 bg-[#1a1a1a] border border-[#333] rounded-xl">
-              <p className="text-gray-300 mb-4"><strong>Reagents:</strong> Sodium nitrate(III) (sodium nitrite, NaNO₂) and dilute hydrochloric acid (HCl).</p>
-              <p className="text-gray-300"><strong>Conditions:</strong> The temperature must be kept below <strong>10°C</strong> (usually between 0°C and 5°C) to prevent the diazonium salt from decomposing into a phenol and nitrogen gas.</p>
-            </div>
-          )}
-        </div>
-
-        {/* Q2 */}
-        <div className="bg-[#111] border border-[#222] rounded-3xl p-8">
-          <h3 className="text-2xl font-bold mb-4 text-green-400">Question 2</h3>
-          <p className="text-lg text-gray-200 mb-6">
-            The diazonium salt formed in Question 1 can be reacted with phenol to form a brightly coloured <strong>azo dye</strong>. Name the reagents and conditions required for this coupling reaction, and state the term used to describe the part of a molecule responsible for its colour.
-          </p>
-          <button 
-            onClick={() => toggleAnswer('q2')} 
-            className="px-6 py-2 bg-[#1f1f1f] rounded-lg font-semibold hover:bg-[#2a2a2a] transition-colors text-white"
-          >
-            {openAnswers['q2'] ? 'Hide Answer' : 'Reveal Answer'}
-          </button>
-          
-          {openAnswers['q2'] && (
-            <div className="mt-6 p-6 bg-[#1a1a1a] border border-[#333] rounded-xl">
-              <p className="text-gray-300 mb-2"><strong>Reagents:</strong> Phenol dissolved in <strong>aqueous sodium hydroxide</strong> (alkaline conditions).</p>
-              <p className="text-gray-300 mb-4"><strong>Conditions:</strong> The mixture must be kept <strong>cold</strong>.</p>
-              <p className="text-gray-300"><strong>Term:</strong> The part of the compound responsible for the colour is called the <strong>chromophore</strong>.</p>
-            </div>
-          )}
-        </div>
-
-        {/* Q3 */}
-        <div className="bg-[#111] border border-[#222] rounded-3xl p-8">
-          <h3 className="text-2xl font-bold mb-4 text-green-400">Question 3</h3>
-          <p className="text-lg text-gray-200 mb-6">
-            Benzocaine can be synthesized from the starting molecule shown below in two steps.
-          </p>
-          
-          <div className="flex justify-center mb-6">
-            <div className="bg-[#0a0a0a] border border-[#222] p-4 rounded-2xl">
-              <img 
-                src="/starting_molecule.png" 
-                alt="Starting molecule structure" 
-                className="max-h-32 invert opacity-90"
-              />
-              <p className="text-center text-gray-500 text-xs mt-2">4-ethylphenylamine</p>
-            </div>
-          </div>
-
-          <p className="text-lg text-gray-200 mb-6">
-            Provide the reagents and conditions for each step to convert this molecule into Benzocaine.
-          </p>
-          
-          <button 
-            onClick={() => toggleAnswer('q3')} 
-            className="px-6 py-2 bg-[#1f1f1f] rounded-lg font-semibold hover:bg-[#2a2a2a] transition-colors text-white"
-          >
-            {openAnswers['q3'] ? 'Hide Answer' : 'Reveal Answer'}
-          </button>
-          
-          {openAnswers['q3'] && (
-            <div className="mt-6 p-6 bg-[#1a1a1a] border border-[#333] rounded-xl">
-              <div className="space-y-4">
-                <div>
-                  <p className="text-gray-200 font-bold">Step 1: Oxidation</p>
-                  <p className="text-gray-400">Heat under reflux with <strong>alkaline potassium manganate(VII)</strong> (KMnO₄), followed by acidification. This oxidizes the ethyl side-chain to a carboxylic acid.</p>
-                </div>
-                <div>
-                  <p className="text-gray-200 font-bold">Step 2: Esterification</p>
-                  <p className="text-gray-400">Heat under reflux with <strong>ethanol</strong> and <strong>concentrated sulfuric acid</strong> catalyst to form the final ester (Benzocaine).</p>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-
+        {currentMolecule.questions.map((q) => (
+          <QuestionCard key={q.id} question={q} />
+        ))}
       </div>
     </div>
   );
