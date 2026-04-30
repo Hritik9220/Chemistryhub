@@ -25,8 +25,10 @@ CREATE POLICY "Allow anon insert if not exists"
   ON daily_molecule_archive FOR INSERT
   WITH CHECK ( true );
 
--- Backlog yesterday's molecule (Paracetamol)
+-- Backlog past molecules
 INSERT INTO daily_molecule_archive (date, molecule_id, molecule_name)
-VALUES ('2026-04-29', 'paracetamol', 'Paracetamol')
+VALUES 
+  ('2026-04-28', 'paracetamol', 'Paracetamol'),
+  ('2026-04-29', 'benzocaine', 'Benzocaine')
 ON CONFLICT (date) DO NOTHING;
 

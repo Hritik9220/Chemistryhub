@@ -93,5 +93,41 @@ export const molecules: Molecule[] = [
         ]
       }
     ]
+  },
+  {
+    id: "paracetamol",
+    name: "Paracetamol",
+    formula: "N-(4-hydroxyphenyl)ethanamide",
+    description: "Paracetamol is a widely used medication to treat pain and fever. It features both a phenol group and an amide linkage.",
+    image: "/paracetamol.png",
+    questions: [
+      {
+        id: "q1",
+        title: "Question 1",
+        questionText: "Paracetamol contains a phenol group. State what would be observed if excess bromine water is added to an aqueous solution of paracetamol, and name the type of reaction mechanism.",
+        answerElements: [
+          { label: "Observation", text: "The orange bromine water is **decolorised** and a **white precipitate** forms." },
+          { label: "Mechanism", text: "**Electrophilic Substitution**. The lone pair on the phenol oxygen delocalises into the ring, increasing electron density and making it highly susceptible to electrophilic attack." }
+        ]
+      },
+      {
+        id: "q2",
+        title: "Question 2",
+        questionText: "Paracetamol can be synthesized by reacting 4-aminophenol with ethanoic anhydride. Explain why ethanoic anhydride is typically preferred over ethanoyl chloride for this industrial synthesis.",
+        answerElements: [
+          { label: "Safety", text: "Reacting with ethanoic anhydride produces ethanoic acid as a byproduct, which is far safer than the highly toxic and corrosive **hydrogen chloride (HCl) gas** produced by ethanoyl chloride." },
+          { label: "Practicality", text: "Ethanoic anhydride is also **cheaper** and **less vigorous/violent** in its reaction, making it easier to control on an industrial scale." }
+        ]
+      },
+      {
+        id: "q3",
+        title: "Question 3",
+        questionText: "Predict the number of distinct peaks you would expect to see in the **13C NMR spectrum** of paracetamol.",
+        answerElements: [
+          { label: "Total Peaks", text: "There are **6** distinct carbon environments." },
+          { label: "Breakdown", text: "The benzene ring has a plane of symmetry through the C-OH and C-NH bonds, meaning there are **4 environments on the ring**. The remaining two are the **carbonyl carbon (C=O)** and the **methyl carbon (CH₃)** in the amide group." }
+        ]
+      }
+    ]
   }
 ];
