@@ -20,6 +20,7 @@ export const molecules: Molecule[] = [
     id: "benzocaine",
     name: "Benzocaine",
     formula: "Ethyl 4-aminobenzoate",
+    description: "Benzocaine is a local anesthetic commonly used as a topical pain reliever or in cough drops. It is the ethyl ester of p-aminobenzoic acid (PABA).",
     image: "/benzocaine.png",
     questions: [
       {
@@ -95,6 +96,43 @@ export const molecules: Molecule[] = [
     ]
   },
   {
+    id: "epinephrine",
+    name: "Epinephrine",
+    formula: "1-(3,4-dihydroxyphenyl)-2-(methylamino)ethanol",
+    description: "Also known as adrenaline, this hormone and medication is crucial in the fight-or-flight response. It features a catechol ring, a secondary amine, and a secondary alcohol.",
+    image: "/epinephrine.png",
+    questions: [
+      {
+        id: "q1",
+        title: "Question 1",
+        questionText: "Epinephrine is an optically active molecule that exists as a pair of enantiomers. State the structural feature that gives rise to this optical isomerism, and specifically identify where it is located on the epinephrine molecule.",
+        answerElements: [
+          { label: "Structural Feature", text: "The molecule contains a **chiral centre** (an asymmetric carbon atom bonded to four different groups)." },
+          { label: "Location", text: "The chiral centre is the carbon atom bonded to the **secondary alcohol (-OH) group** on the aliphatic side chain." }
+        ]
+      },
+      {
+        id: "q2",
+        title: "Question 2",
+        questionText: "Epinephrine contains both acidic and basic functional groups. Identify the functional group that reacts when epinephrine is treated with dilute hydrochloric acid, and the functional group that reacts when treated with aqueous sodium hydroxide.",
+        answerElements: [
+          { label: "Reaction with HCl", text: "The **secondary amine** group acts as a base and will accept a proton to form a soluble salt." },
+          { label: "Reaction with NaOH", text: "The **phenol** groups act as weak acids and will donate protons to form phenoxide ions." }
+        ]
+      },
+      {
+        id: "q3",
+        title: "Question 3",
+        questionText: "Explain why the aromatic ring in epinephrine is significantly more reactive towards electrophiles (such as bromine) than unsubstituted benzene.",
+        answerElements: [
+          { label: "Lone Pair Donation", text: "A **lone pair of electrons** on the oxygen atom of the phenol (-OH) group is **delocalised** into the pi-system of the benzene ring." },
+          { label: "Electron Density", text: "This increases the **electron density** of the delocalised ring." },
+          { label: "Electrophilic Susceptibility", text: "The more electron-rich ring is **more attractive to electrophiles** and is able to polarise them (e.g., Br₂) without the need for a halogen carrier catalyst." }
+        ]
+      }
+    ]
+  },
+  {
     id: "paracetamol",
     name: "Paracetamol",
     formula: "N-(4-hydroxyphenyl)ethanamide",
@@ -126,6 +164,59 @@ export const molecules: Molecule[] = [
         answerElements: [
           { label: "Total Peaks", text: "There are **6** distinct carbon environments." },
           { label: "Breakdown", text: "The benzene ring has a plane of symmetry through the C-OH and C-NH bonds, meaning there are **4 environments on the ring**. The remaining two are the **carbonyl carbon (C=O)** and the **methyl carbon (CH₃)** in the amide group." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "aspirin",
+    name: "Aspirin",
+    formula: "2-acetoxybenzoic acid",
+    description: "Aspirin is one of the most widely used medications globally, utilized to reduce pain, fever, and inflammation.",
+    image: "/aspirin.png",
+    questions: [
+      {
+        id: "q1",
+        title: "Question 1",
+        questionText: "Aspirin can undergo alkaline hydrolysis. State the reagents required and describe the organic products formed when aspirin is completely hydrolysed under alkaline conditions.",
+        answerElements: [
+          { label: "Reagents", text: "Heat under reflux with aqueous sodium hydroxide (NaOH)." },
+          { label: "Products", text: "The ester linkage breaks, and the carboxylic acid group reacts with the alkali. The final products are **sodium salicylate** (sodium 2-hydroxybenzoate) and **sodium ethanoate**." }
+        ]
+      },
+      {
+        id: "q2",
+        title: "Question 2",
+        questionText: "Identify the key absorptions you would expect to see in the Infrared (IR) spectrum of Aspirin, stating their functional group sources.",
+        answerElements: [
+          { label: "Carboxylic Acid", text: "A very broad absorption around **2500–3300 cm⁻¹** due to the O-H bond in the carboxylic acid group." },
+          { label: "Carbonyls", text: "Two strong, sharp absorptions around **1700–1750 cm⁻¹** due to the C=O bonds in both the ester and carboxylic acid groups." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "ibuprofen",
+    name: "Ibuprofen",
+    formula: "2-(4-isobutylphenyl)propanoic acid",
+    description: "Ibuprofen is a nonsteroidal anti-inflammatory drug (NSAID) that exists as a pair of optical isomers (enantiomers).",
+    image: "/ibuprofen.png",
+    questions: [
+      {
+        id: "q1",
+        title: "Question 1",
+        questionText: "Ibuprofen exhibits optical isomerism. Explain what feature of the ibuprofen molecule allows it to form optical isomers, and how these isomers interact with plane-polarized light.",
+        answerElements: [
+          { label: "Structural Feature", text: "It contains a **chiral centre** (an asymmetric carbon atom bonded to four different groups)." },
+          { label: "Interaction", text: "The two enantiomers will rotate the plane of **plane-polarized light** by equal amounts but in **opposite directions**." }
+        ]
+      },
+      {
+        id: "q2",
+        title: "Question 2",
+        questionText: "State the reagent required to reduce the carboxylic acid group in ibuprofen to a primary alcohol.",
+        answerElements: [
+          { label: "Reagent", text: "**Lithium tetrahydridoaluminate(III)** (LiAlH₄) dissolved in dry ether." }
         ]
       }
     ]
