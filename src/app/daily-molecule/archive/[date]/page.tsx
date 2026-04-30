@@ -12,6 +12,9 @@ export default async function HistoricalMoleculePage({
 }) {
   const { date } = await params;
 
+  let currentMolecule = null;
+  let isFutureModeratorPreview = false;
+
   // Fetch the record from the archive for this date
   const { data: record } = await supabase
     .from('daily_molecule_archive')
@@ -20,25 +23,43 @@ export default async function HistoricalMoleculePage({
     .single();
 
   if (!record) {
-    return (
-      <div className="max-w-4xl mx-auto p-8 min-h-screen flex flex-col py-12 justify-center items-center">
-        <h1 className="text-3xl font-bold text-white mb-4">No Record Found</h1>
-        <p className="text-gray-400 mb-8">We couldn't find a molecule archived on {date}.</p>
-        <Link href="/daily-molecule/archive" className="px-6 py-3 bg-[#1f1f1f] rounded-xl text-white hover:bg-[#2a2a2a] transition-colors">
-          Return to Archive
-        </Link>
-      </div>
-    );
-  }
+    // Check if it's a future date and if the user is a moderator
+    const { data: { user } } = await supabase.auth.getUser();
+    const isModerator = user?.email === "hritiksanyal@gmail.com";
+    
+    if (isModerator) {
+      const START_DATE = new Date("2026-04-29").getTime();
+      const requestedDate = new Date(date).getTime();
+      const index = Math.floor((requestedDate - START_DATE) / 86400000);
+      const daysSinceStart = Math.max(0, Math.floor((Date.now() - START_DATE) / 86400000));
+      
+      if (index > daysSinceStart && index < molecules.length) {
+        currentMolecule = molecules[index];
+        isFutureModeratorPreview = true;
+      }
+    }
 
-  // Find the full molecule data from our local bank using the molecule_id
-  const currentMolecule = molecules.find(m => m.id === record.molecule_id);
+    if (!currentMolecule) {
+      return (
+        <div className="max-w-4xl mx-auto p-8 min-h-screen flex flex-col py-12 justify-center items-center">
+          <h1 className="text-3xl font-bold text-white mb-4">No Record Found</h1>
+          <p className="text-gray-400 mb-8">We couldn't find a molecule archived on {date}.</p>
+          <Link href="/daily-molecule/archive" className="px-6 py-3 bg-[#1f1f1f] rounded-xl text-white hover:bg-[#2a2a2a] transition-colors">
+            Return to Archive
+          </Link>
+        </div>
+      );
+    }
+  } else {
+    // Find the full molecule data from our local bank using the molecule_id
+    currentMolecule = molecules.find(m => m.id === record.molecule_id);
+  }
 
   if (!currentMolecule) {
     return (
       <div className="max-w-4xl mx-auto p-8 min-h-screen flex flex-col py-12 justify-center items-center">
         <h1 className="text-3xl font-bold text-white mb-4">Molecule Data Missing</h1>
-        <p className="text-gray-400 mb-8">The molecule {record.molecule_name} is in the archive, but its data is no longer in the code.</p>
+        <p className="text-gray-400 mb-8">The molecule is in the archive, but its data is no longer in the code.</p>
         <Link href="/daily-molecule/archive" className="px-6 py-3 bg-[#1f1f1f] rounded-xl text-white hover:bg-[#2a2a2a] transition-colors">
           Return to Archive
         </Link>
@@ -52,9 +73,15 @@ export default async function HistoricalMoleculePage({
         <Link href="/daily-molecule/archive" className="inline-block px-6 py-3 bg-[#1f1f1f] rounded-xl text-white hover:bg-[#2a2a2a] transition-colors">
           ← Back to Archive
         </Link>
-        <span className="text-gray-500 font-mono bg-[#111] px-4 py-2 rounded-lg border border-[#222]">
-          Archived: {date}
-        </span>
+        {isFutureModeratorPreview ? (
+          <span className="text-yellow-500 font-mono bg-[#1a1500] px-4 py-2 rounded-lg border border-yellow-700">
+            🔮 Moderator Preview: {date}
+          </span>
+        ) : (
+          <span className="text-gray-500 font-mono bg-[#111] px-4 py-2 rounded-lg border border-[#222]">
+            Archived: {date}
+          </span>
+        )}
       </div>
       
       <div className="text-center mb-12">
