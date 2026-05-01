@@ -220,5 +220,58 @@ export const molecules: Molecule[] = [
         ]
       }
     ]
+  },
+  {
+    id: "capsaicin",
+    name: "Capsaicin",
+    formula: "8-methyl-N-vanillyl-trans-6-nonenamide",
+    description: "Capsaicin is the active component of chili peppers, responsible for their characteristic pungent, spicy sensation. It is commonly used as an analgesic in topical ointments and in riot control agents.",
+    image: "/capsaicin.png",
+    questions: [
+      {
+        id: "q1",
+        title: "Question 1",
+        questionText: "Identify all the chemical tests from the Eduqas A-Level specification that would yield a positive result for capsaicin, stating the reagents, the functional group being tested, and the expected observations.",
+        answerElements: [
+          { label: "Bromine Water", text: "Tests for **Alkene & Phenol**. Orange bromine water is **decolourised** by both the C=C double bond (addition) and the phenol ring (substitution). A **white precipitate** also forms due to the phenol." },
+          { label: "Neutral Iron(III) Chloride", text: "Tests for **Phenol**. Addition of neutral aqueous iron(III) chloride (FeCl₃) solution produces a **purple/violet colour**." },
+          { label: "Acidified Potassium Manganate(VII)", text: "Tests for **Alkene**. Addition of acidified KMnO₄ results in the **purple solution decolourising**, as the C=C double bond is oxidised to a diol." }
+        ]
+      },
+      {
+        id: "q2",
+        title: "Question 2",
+        questionText: "The precursor molecule shown below differs from capsaicin only by the lack of the hydroxyl (-OH) group on the benzene ring. Outline the three-step synthetic pathway required to add this -OH group to the ring, stating the reagents and conditions for each step.",
+        questionImage: {
+          src: "/capsaicin_precursor.png",
+          alt: "Precursor molecule",
+          caption: "Capsaicin Precursor"
+        },
+        answerElements: [
+          { label: "Step 1: Nitration", text: "React with **dilute nitric acid** (HNO₃) at room temperature. The ring is sufficiently activated by the methoxy (-OCH₃) group, so concentrated acids and catalysts are not needed." },
+          { label: "Step 2: Reduction", text: "Heat under reflux with **tin (Sn)** and **concentrated hydrochloric acid** (HCl), followed by NaOH, to reduce the -NO₂ group to an amine (-NH₂)." },
+          { label: "Step 3: Diazotisation & Hydrolysis", text: "React with **sodium nitrite** (NaNO₂) and dilute HCl at a temperature **above 10°C** (or warm). The unstable diazonium intermediate will immediately decompose in the aqueous mixture to form the final phenol (-OH) group and nitrogen gas." }
+        ]
+      },
+      {
+        id: "q3",
+        title: "Question 3",
+        questionText: "The four-step synthesis outlined in Question 2 is likely to have a very low overall yield. Suggest three chemical reasons why the final yield of capsaicin would be poor, referencing specific side-reactions that may occur.",
+        answerElements: [
+          { label: "Polysubstitution", text: "During the nitration step, the highly activated benzene ring may undergo **polysubstitution** (e.g., di-nitration), forming unwanted by-products." },
+          { label: "Positional Isomers", text: "Nitration can occur at **different positions** on the benzene ring, leading to a mixture of structural isomers rather than exclusively the desired product." },
+          { label: "Amide Hydrolysis", text: "The harsh conditions used (such as heating under reflux with concentrated HCl during the reduction step) will likely cause **hydrolysis of the amide linkage**, breaking the molecule apart." }
+        ]
+      },
+      {
+        id: "q4",
+        title: "Question 4",
+        questionText: "Capsaicin exhibits stereoisomerism due to its carbon-carbon double bond. State the specific type of stereoisomerism shown by capsaicin, and explain why it exists in this form.",
+        answerElements: [
+          { label: "Type", text: "**E/Z isomerism** (specifically the *E* or trans isomer)." },
+          { label: "Explanation", text: "The C=C double bond has **restricted rotation**. Each carbon atom of the double bond is attached to **two different groups**, leading to distinct non-superimposable spatial arrangements." }
+        ]
+      }
+    ]
   }
 ];
