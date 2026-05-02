@@ -273,6 +273,40 @@ export const molecules: Molecule[] = [
         ]
       }
     ]
+  },
+  {
+    id: "heterocycles",
+    name: "Furan, Thiophene, and Pyrrole",
+    formula: "C₄H₄O, C₄H₄S, C₄H₄NH",
+    description: "Five-membered heterocyclic aromatic compounds. They exhibit distinct physical properties and aromatic stabilization compared to benzene due to the presence of different heteroatoms.",
+    image: "/heterocycles.png",
+    questions: [
+      {
+        id: "q1",
+        title: "Question 1",
+        questionText: "Compare the boiling points of furan (31 °C), thiophene (84 °C), and pyrrole (130 °C). Explain the differences in these values based on intermolecular forces.",
+        answerElements: [
+          { label: "Pyrrole (Highest)", text: "Pyrrole exhibits intermolecular **hydrogen bonding** due to the presence of an N-H bond, requiring significantly more energy to separate the molecules." },
+          { label: "Thiophene vs Furan", text: "Sulfur is a larger, more polarizable atom than oxygen. Therefore, thiophene has stronger **Van der Waals forces** than furan, giving it a higher boiling point despite furan having a stronger permanent dipole." }
+        ]
+      },
+      {
+        id: "q2",
+        title: "Question 2",
+        questionText: "The resonance (delocalisation) energies follow the trend: Furan (~67 kJ mol⁻¹) < Pyrrole (~88 kJ mol⁻¹) < Thiophene (~121 kJ mol⁻¹). Explain why this trend occurs.",
+        answerElements: [
+          { label: "Explanation", text: "Oxygen is the most electronegative atom of the three, holding its lone pair of electrons most tightly and resisting delocalisation into the aromatic ring. Sulfur is the least electronegative, allowing its lone pair to be donated more readily into the pi-system, resulting in the highest delocalisation energy and greatest aromatic stability." }
+        ]
+      },
+      {
+        id: "q3",
+        title: "Question 3",
+        questionText: "Compare the basicity of pyrrole, furan, and thiophene. Explain why they are generally very weakly basic, and why their fully saturated counterparts (tetrahydrofuran, tetrahydrothiophene, and pyrrolidine) are significantly more basic.",
+        answerElements: [
+          { label: "Comparing Basicity", text: "Pyrrole is the least basic because its single nitrogen lone pair is entirely delocalised into the aromatic pi-system; accepting a proton would destroy the molecule's aromatic stability. Furan and thiophene have a second lone pair that is not part of the pi-system, making them slightly more basic than pyrrole, but still very weak." },
+          { label: "Tetrahydro Molecules", text: "In the fully saturated (tetrahydro) molecules, the lone pair of electrons on the heteroatom is **not delocalised**. This means the lone pair is fully localized and available to accept a proton (H⁺), making them much more basic." }
+        ]
+      }
+    ]
   }
-
 ];
