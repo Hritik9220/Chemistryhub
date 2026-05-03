@@ -308,5 +308,50 @@ export const molecules: Molecule[] = [
         ]
       }
     ]
+  },
+  {
+    id: "alanylglycylserine",
+    name: "Alanylglycylserine",
+    formula: "C8H15N3O5",
+    description: "Alanylglycylserine is a generic tripeptide composed of the amino acids alanine, glycine, and serine. It is an excellent molecule for studying peptide bonds and acid hydrolysis.",
+    image: "/alanylglycylserine.png",
+    questions: [
+      {
+        id: "q1",
+        title: "Question 1",
+        questionText: "A student attempts to synthesise glycine (2-aminoethanoic acid) by reacting chloroethanoic acid (ClCH₂COOH) with ammonia (NH₃). State the exact reagents and conditions required to ensure a high yield of glycine. Then, explain using your knowledge of nucleophilic substitution why the yield of glycine is very poor if only a 1:1 molar ratio of chloroethanoic acid to ammonia is used, naming the type of side-product formed.",
+        answerElements: [
+          { label: "Reagents & Conditions", text: "**Excess** concentrated ammonia, dissolved in **ethanol**, heated in a sealed tube." },
+          { label: "Explanation of Poor Yield", text: "The product, glycine, contains an amino group (-NH₂) which still has a lone pair of electrons. This means glycine can act as a **nucleophile** and attack another molecule of chloroethanoic acid. This leads to **multiple substitutions (polyalkylation)**, forming a secondary (or tertiary) amine. Using *excess* ammonia ensures the haloalkane is overwhelmingly more likely to collide with ammonia than with the newly formed glycine." }
+        ]
+      },
+      {
+        id: "q2",
+        title: "Question 2",
+        questionText: "In industry, amino acids are often synthesised from aldehydes via a two-step process called the Strecker Synthesis. Ethanal (CH₃CHO) reacts with a mixture of KCN(aq) and NH₄Cl(aq) to form **Intermediate X** (C₃H₆N₂). **Intermediate X** is then heated under reflux with dilute hydrochloric acid to form Alanine. Deduce the structure of **Intermediate X** and state the type of reaction occurring in the final step.",
+        answerElements: [
+          { label: "Intermediate X", text: "CH₃CH(NH₂)CN (2-aminopropanenitrile)." },
+          { label: "Final Step Reaction", text: "Acid Hydrolysis." }
+        ]
+      },
+      {
+        id: "q3",
+        title: "Question 3",
+        questionText: "Using the information that the carbonyl (C=O) group in the starting material (ethanal) has a trigonal planar arrangement around the central carbon atom, explain how the synthesis pathway in Question 2 leads to the formation of a racemic mixture of Alanine.",
+        answerElements: [
+          { label: "Racemic Mixture Explanation", text: "The carbonyl group is planar, meaning the incoming nucleophile (CN⁻) can attack the central carbon atom from either **above or below** the plane. Because both directions of attack are **equally likely**, an equal amount of both enantiomers is formed, resulting in a racemic mixture." }
+        ]
+      },
+      {
+        id: "q4",
+        title: "Question 4",
+        questionText: "A biochemist isolates a small tripeptide from a cell culture. The structure of the peptide is: H₂N-CH(CH₃)-CO-NH-CH₂-CO-NH-CH(CH₂OH)-COOH. State the number of peptide (amide) links present in this molecule. This peptide is then heated under reflux with concentrated 6 mol dm⁻³ HCl. Identify the three organic products formed and name the type of reaction occurring.",
+        answerElements: [
+          { label: "Peptide Links", text: "There are **two** peptide (-CO-NH-) links." },
+          { label: "Hydrolysis Products", text: "Because the hydrolysis is carried out under strongly acidic conditions, the amino acids formed will have their amine groups protonated. The three products are the protonated ammonium salts of Alanine, Glycine, and Serine: ⁺H₃N-CH(CH₃)-COOH, ⁺H₃N-CH₂-COOH, and ⁺H₃N-CH(CH₂OH)-COOH" },
+          { label: "Reaction Type", text: "Acid Hydrolysis." }
+        ]
+      }
+    ]
   }
 ];
