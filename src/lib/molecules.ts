@@ -418,9 +418,9 @@ export const molecules: Molecule[] = [
       {
         id: "q3",
         title: "Question 3",
-        questionText: "State the reagent and conditions required to reduce cinnamaldehyde to 3-phenylpropan-1-ol, ensuring both the alkene and aldehyde are reduced.",
+        questionText: "State the reagents required to completely reduce cinnamaldehyde to 3-phenylpropan-1-ol.",
         answerElements: [
-          { label: "Reagent & Conditions", text: "**Hydrogen gas (H₂)** with a **nickel catalyst**, heated under pressure. (Note: NaBH₄ would only reduce the aldehyde, leaving the alkene intact)." }
+          { label: "Reagents", text: "A two-step reduction is required using both **NaBH₄** (aqueous/ethanolic) to reduce the aldehyde, and **H₂ gas with a Ni catalyst** (heated) to reduce the alkene. These can be done in either order." }
         ]
       }
     ]
@@ -452,7 +452,12 @@ export const molecules: Molecule[] = [
       {
         id: "q3",
         title: "Question 3",
-        questionText: "State the reagents and conditions required to oxidize lactic acid to pyruvic acid (2-oxopropanoic acid), and state the color change observed.",
+        questionText: "State the reagents and conditions required to oxidize lactic acid to the molecule shown below, and state the color change observed.",
+        questionImage: {
+          src: "/pyruvic_acid.png",
+          alt: "Structure of oxidation product",
+          caption: "Oxidation Product"
+        },
         answerElements: [
           { label: "Reagents & Conditions", text: "Heat under reflux with **acidified potassium dichromate(VI)** (K₂Cr₂O₇ and H₂SO₄)." },
           { label: "Observation", text: "The solution changes color from **orange to green**." }
@@ -514,9 +519,11 @@ export const molecules: Molecule[] = [
       {
         id: "q2",
         title: "Question 2",
-        questionText: "Explain why the nitration of methyl benzoate produces predominantly the 3-nitro (meta) isomer, rather than the 2-nitro or 4-nitro isomers.",
+        questionText: "Methyl 3-nitrobenzoate is a solid at room temperature. Briefly outline how a student could purify an impure sample of this solid by recrystallisation.",
         answerElements: [
-          { label: "Explanation", text: "The ester group (-COOCH₃) is an **electron-withdrawing group**. It deactivates the benzene ring and directs incoming electrophiles to the **meta (3) position**." }
+          { label: "Solvent", text: "Dissolve the impure solid in the **minimum volume of hot solvent**." },
+          { label: "Filtration", text: "Filter hot (gravity filtration) to remove insoluble impurities, then allow the solution to **cool and crystallise**." },
+          { label: "Collection", text: "Collect the pure crystals using **vacuum filtration** (Buchner funnel), wash with a little cold solvent, and dry." }
         ]
       },
       {
