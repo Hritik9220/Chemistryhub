@@ -311,7 +311,7 @@ export const molecules: Molecule[] = [
   },
   {
     id: "alanylglycylserine",
-    name: "Alanylglycylserine",
+    name: "Peptides",
     formula: "C8H15N3O5",
     description: "Alanylglycylserine is a generic tripeptide composed of the amino acids alanine, glycine, and serine. It is an excellent molecule for studying peptide bonds and acid hydrolysis.",
     image: "/alanylglycylserine.png",
