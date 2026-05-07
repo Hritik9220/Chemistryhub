@@ -353,5 +353,180 @@ export const molecules: Molecule[] = [
         ]
       }
     ]
+  },
+  {
+    id: "salicylicacid",
+    name: "Salicylic Acid",
+    formula: "2-hydroxybenzoic acid",
+    description: "Salicylic acid is a beta hydroxy acid (BHA) naturally found in willow bark. It acts as a plant hormone and is widely used in acne treatments and as a precursor to aspirin.",
+    image: "/salicylic_acid.png",
+    questions: [
+      {
+        id: "q1",
+        title: "Question 1",
+        questionText: "Salicylic acid contains two acidic functional groups. State the reagents and observations when testing for each group independently.",
+        answerElements: [
+          { label: "Phenol Group", text: "Adding neutral aqueous **iron(III) chloride (FeCl₃)** produces a **purple/violet** solution." },
+          { label: "Carboxylic Acid Group", text: "Adding **aqueous sodium carbonate (Na₂CO₃)** produces **effervescence** (bubbles) of carbon dioxide gas." }
+        ]
+      },
+      {
+        id: "q2",
+        title: "Question 2",
+        questionText: "Describe the synthesis of Aspirin starting from Salicylic acid, stating the specific reagents and conditions required.",
+        answerElements: [
+          { label: "Reagents", text: "**Ethanoic anhydride**." },
+          { label: "Conditions", text: "**Warm** the mixture with a few drops of **concentrated phosphoric acid (H₃PO₄)** or concentrated sulfuric acid catalyst." }
+        ]
+      },
+      {
+        id: "q3",
+        title: "Question 3",
+        questionText: "Predict the number of distinct proton environments in the high-resolution ¹H NMR spectrum of salicylic acid.",
+        answerElements: [
+          { label: "Total Peaks", text: "There are **6** distinct proton environments." },
+          { label: "Breakdown", text: "The benzene ring has no plane of symmetry, resulting in **4 distinct environments on the ring**. There is **1** environment for the phenol O-H proton, and **1** environment for the carboxylic acid O-H proton." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "cinnamaldehyde",
+    name: "Cinnamaldehyde",
+    formula: "3-phenylprop-2-enal",
+    description: "Cinnamaldehyde gives cinnamon its distinct flavor and odor. It is a pale yellow, viscous liquid that occurs naturally in the bark of cinnamon trees.",
+    image: "/cinnamaldehyde.png",
+    questions: [
+      {
+        id: "q1",
+        title: "Question 1",
+        questionText: "Cinnamaldehyde can be tested using Tollens' reagent. State the required conditions, the expected observation for a positive test, and state the type of reaction occurring.",
+        answerElements: [
+          { label: "Conditions & Observation", text: "**Warm** the mixture with Tollens' reagent to produce a **silver mirror** on the inside of the test tube." },
+          { label: "Reaction Type", text: "**Oxidation** (the aldehyde group is oxidized to a carboxylic acid, while the silver ions are reduced)." }
+        ]
+      },
+      {
+        id: "q2",
+        title: "Question 2",
+        questionText: "Cinnamaldehyde contains a carbon-carbon double bond. State the expected observation when bromine water is added, and describe the mechanism of this reaction.",
+        answerElements: [
+          { label: "Observation", text: "The orange bromine water is **decolorized**." },
+          { label: "Mechanism", text: "**Electrophilic Addition** across the C=C double bond." }
+        ]
+      },
+      {
+        id: "q3",
+        title: "Question 3",
+        questionText: "State the reagent and conditions required to reduce cinnamaldehyde to 3-phenylpropan-1-ol, ensuring both the alkene and aldehyde are reduced.",
+        answerElements: [
+          { label: "Reagent & Conditions", text: "**Hydrogen gas (H₂)** with a **nickel catalyst**, heated under pressure. (Note: NaBH₄ would only reduce the aldehyde, leaving the alkene intact)." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "lacticacid",
+    name: "Lactic Acid",
+    formula: "2-hydroxypropanoic acid",
+    description: "Lactic acid is produced in muscle tissues during intense exercise and by certain bacteria in yogurt. It is a chiral molecule that can form condensation polymers.",
+    image: "/lactic_acid.png",
+    questions: [
+      {
+        id: "q1",
+        title: "Question 1",
+        questionText: "Lactic acid is a chiral molecule. Explain what this means in terms of its structure and its effect on plane-polarized light.",
+        answerElements: [
+          { label: "Structure", text: "It contains a **chiral centre**—a carbon atom attached to four different groups." },
+          { label: "Effect on Light", text: "The two non-superimposable enantiomers rotate the plane of **plane-polarized light** by equal amounts but in **opposite directions**." }
+        ]
+      },
+      {
+        id: "q2",
+        title: "Question 2",
+        questionText: "Lactic acid can undergo condensation polymerization to form polylactic acid (PLA). Explain why PLA is considered a more environmentally friendly plastic than poly(ethene).",
+        answerElements: [
+          { label: "Explanation", text: "PLA contains **ester linkages** (-COO-) which can be hydrolyzed by moisture and broken down by microorganisms, making it **biodegradable**. Poly(ethene) only contains unreactive C-C and C-H bonds, making it non-biodegradable." }
+        ]
+      },
+      {
+        id: "q3",
+        title: "Question 3",
+        questionText: "State the reagents and conditions required to oxidize lactic acid to pyruvic acid (2-oxopropanoic acid), and state the color change observed.",
+        answerElements: [
+          { label: "Reagents & Conditions", text: "Heat under reflux with **acidified potassium dichromate(VI)** (K₂Cr₂O₇ and H₂SO₄)." },
+          { label: "Observation", text: "The solution changes color from **orange to green**." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "aniline",
+    name: "Phenylamine (Aniline)",
+    formula: "C₆H₅NH₂",
+    description: "Phenylamine is the simplest aromatic amine. It is an important industrial chemical, mainly used as a precursor to more complex chemicals, such as polyurethanes and azo dyes.",
+    image: "/aniline.png",
+    questions: [
+      {
+        id: "q1",
+        title: "Question 1",
+        questionText: "Phenylamine is a significantly weaker base than ethylamine. Explain this difference in basicity in terms of electron pairs.",
+        answerElements: [
+          { label: "Explanation", text: "In phenylamine, the lone pair of electrons on the nitrogen atom is **partially delocalized into the pi-system** of the benzene ring. This reduces the electron density on the nitrogen, making the lone pair **less available to accept a proton (H⁺)** compared to the localized lone pair in ethylamine." }
+        ]
+      },
+      {
+        id: "q2",
+        title: "Question 2",
+        questionText: "Phenylamine can be synthesized from nitrobenzene. State the reagents and conditions for this reaction, and name the type of reaction.",
+        answerElements: [
+          { label: "Reagents & Conditions", text: "Heat under reflux with **tin (Sn)** and **concentrated hydrochloric acid (HCl)**, followed by the addition of aqueous sodium hydroxide (NaOH)." },
+          { label: "Reaction Type", text: "**Reduction**." }
+        ]
+      },
+      {
+        id: "q3",
+        title: "Question 3",
+        questionText: "Phenylamine reacts readily with bromine water at room temperature without a catalyst. State the expected observation and name the organic product formed.",
+        answerElements: [
+          { label: "Observation", text: "The orange bromine water is **decolorized** and a **white precipitate** forms." },
+          { label: "Product", text: "**2,4,6-tribromophenylamine**." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "methyl3nitrobenzoate",
+    name: "Methyl 3-nitrobenzoate",
+    formula: "C₈H₇NO₄",
+    description: "Methyl 3-nitrobenzoate is an aromatic ester. It is often synthesized in teaching laboratories to demonstrate electrophilic aromatic substitution, specifically the meta-directing effect of the ester group.",
+    image: "/methyl_3_nitrobenzoate.png",
+    questions: [
+      {
+        id: "q1",
+        title: "Question 1",
+        questionText: "Methyl benzoate can be nitrated to form methyl 3-nitrobenzoate. State the reagents and conditions required for this nitration.",
+        answerElements: [
+          { label: "Reagents", text: "**Concentrated nitric acid (HNO₃)** and **concentrated sulfuric acid (H₂SO₄)** catalyst." },
+          { label: "Conditions", text: "Keep the temperature **below 50°C**." }
+        ]
+      },
+      {
+        id: "q2",
+        title: "Question 2",
+        questionText: "Explain why the nitration of methyl benzoate produces predominantly the 3-nitro (meta) isomer, rather than the 2-nitro or 4-nitro isomers.",
+        answerElements: [
+          { label: "Explanation", text: "The ester group (-COOCH₃) is an **electron-withdrawing group**. It deactivates the benzene ring and directs incoming electrophiles to the **meta (3) position**." }
+        ]
+      },
+      {
+        id: "q3",
+        title: "Question 3",
+        questionText: "Methyl 3-nitrobenzoate can be hydrolyzed by heating under reflux with dilute hydrochloric acid. Name the two organic products formed.",
+        answerElements: [
+          { label: "Products", text: "**3-nitrobenzoic acid** and **methanol**." }
+        ]
+      }
+    ]
   }
 ];
