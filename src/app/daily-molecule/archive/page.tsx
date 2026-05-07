@@ -6,10 +6,18 @@ import ModeratorPreview from "@/components/ModeratorPreview";
 export const dynamic = "force-dynamic";
 
 export default async function ArchivePage() {
-  const { data: archive, error } = await supabase
+  const { data: rawArchive, error } = await supabase
     .from("daily_molecule_archive")
     .select("*")
     .order("date", { ascending: false });
+
+  // Patch the duplicate entry for 2026-05-07 without needing database access
+  const archive = rawArchive?.map(entry => {
+    if (entry.date === '2026-05-07' && entry.molecule_id === 'alanylglycylserine') {
+      return { ...entry, molecule_id: 'salicylicacid', molecule_name: 'Salicylic Acid' };
+    }
+    return entry;
+  });
 
   // Calculate future molecules for the client component to evaluate
   const START_DATE = new Date("2026-04-28").getTime();

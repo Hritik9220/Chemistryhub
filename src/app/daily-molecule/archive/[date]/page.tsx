@@ -19,11 +19,17 @@ export default async function HistoricalMoleculePage({
   let isFutureModeratorPreview = false;
 
   // Fetch the record from the archive for this date
-  const { data: record } = await supabase
+  let { data: record } = await supabase
     .from('daily_molecule_archive')
     .select('*')
     .eq('date', date)
     .single();
+
+  // Patch the duplicate entry for 2026-05-07 without needing database access
+  if (record && record.date === '2026-05-07' && record.molecule_id === 'alanylglycylserine') {
+    record.molecule_id = 'salicylicacid';
+    record.molecule_name = 'Salicylic Acid';
+  }
 
   if (!record) {
     // Check if it's a future date and if the user is a moderator using the secret URL parameter
