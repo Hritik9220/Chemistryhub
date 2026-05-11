@@ -535,5 +535,112 @@ export const molecules: Molecule[] = [
         ]
       }
     ]
+  },
+  {
+    id: "thalidomide",
+    name: "Thalidomide",
+    formula: "C₁₃H₁₀N₂O₄",
+    description: "Thalidomide is a medication historically known for its use as a treatment for morning sickness, which tragically led to severe birth defects due to its administration as a racemic mixture.",
+    image: "/thalidomide.png",
+    questions: [
+      {
+        id: "q1",
+        title: "Question 1",
+        questionText: "Thalidomide exists as a pair of optical isomers (enantiomers). Explain the structural feature that allows for this isomerism, and describe how the two isomers differ.",
+        answerElements: [
+          { label: "Structural Feature", text: "The molecule contains a **chiral centre** (an asymmetric carbon atom bonded to four different groups)." },
+          { label: "Difference", text: "The two isomers are **non-superimposable mirror images** of each other." }
+        ]
+      },
+      {
+        id: "q2",
+        title: "Question 2",
+        questionText: "Explain the term 'racemic mixture' and state its effect on plane-polarized light.",
+        answerElements: [
+          { label: "Definition", text: "A racemic mixture contains **equal amounts (a 1:1 mixture)** of both enantiomers." },
+          { label: "Effect on Light", text: "It is **optically inactive** (does not rotate the plane of polarized light) because the rotations of the two enantiomers perfectly cancel each other out." }
+        ]
+      },
+      {
+        id: "q3",
+        title: "Question 3",
+        questionText: "Thalidomide contains amide linkages. State the reagents and conditions needed to hydrolyze these linkages.",
+        answerElements: [
+          { label: "Reagents & Conditions", text: "Heat under reflux with **aqueous acid (e.g., dilute HCl)** or **aqueous alkali (e.g., aqueous NaOH)**." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "kevlar",
+    name: "Kevlar",
+    formula: "[-CO-C₆H₄-CO-NH-C₆H₄-NH-]n",
+    description: "Kevlar is a famously strong condensation polymer used in bulletproof vests and high-performance composites.",
+    image: "/kevlar.png",
+    questions: [
+      {
+        id: "q1",
+        title: "Question 1",
+        questionText: "Kevlar is formed by condensation polymerization. Identify the two types of functional groups present in the monomers used to synthesize Kevlar.",
+        answerElements: [
+          { label: "Monomer 1", text: "A **dicarboxylic acid** (or diacyl chloride)." },
+          { label: "Monomer 2", text: "A **diamine**." }
+        ]
+      },
+      {
+        id: "q2",
+        title: "Question 2",
+        questionText: "Explain, in terms of intermolecular forces, why Kevlar is an exceptionally strong material.",
+        answerElements: [
+          { label: "Hydrogen Bonding", text: "Extensive **hydrogen bonding** forms between the C=O group of one polymer chain and the N-H group of an adjacent chain." },
+          { label: "Structure", text: "The rigid, linear nature of the aromatic rings allows the chains to pack closely together, maximizing these intermolecular forces." }
+        ]
+      },
+      {
+        id: "q3",
+        title: "Question 3",
+        questionText: "Like many condensation polymers, Kevlar can be degraded under certain conditions. Name the type of reaction that breaks the polymer backbone, and state the reagents required.",
+        answerElements: [
+          { label: "Reaction Type", text: "**Hydrolysis**." },
+          { label: "Reagents", text: "Concentrated strong acid or strong alkali, heated under reflux." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "phenol",
+    name: "Phenol",
+    formula: "C₆H₅OH",
+    description: "Phenol consists of a hydroxyl group bonded directly to a benzene ring. It is an important industrial precursor for plastics and pharmaceuticals.",
+    image: "/phenol.png",
+    questions: [
+      {
+        id: "q1",
+        title: "Question 1",
+        questionText: "Phenol is weakly acidic. State the expected observation when phenol reacts with metallic sodium, and name the gas produced.",
+        answerElements: [
+          { label: "Observation", text: "**Effervescence** (fizzing) and the solid sodium dissolves/disappears." },
+          { label: "Gas", text: "**Hydrogen gas (H₂)**." }
+        ]
+      },
+      {
+        id: "q2",
+        title: "Question 2",
+        questionText: "Explain why phenol is significantly more reactive towards electrophiles than benzene.",
+        answerElements: [
+          { label: "Lone Pair Delocalization", text: "A **lone pair of electrons** on the oxygen atom of the -OH group is **delocalized into the pi-system** of the benzene ring." },
+          { label: "Electron Density", text: "This increases the **electron density** of the ring, making it more attractive to electrophiles and capable of polarizing them without a halogen carrier catalyst." }
+        ]
+      },
+      {
+        id: "q3",
+        title: "Question 3",
+        questionText: "Phenol undergoes electrophilic substitution with bromine water at room temperature. State the observations and name the organic product formed.",
+        answerElements: [
+          { label: "Observations", text: "The orange bromine water is **decolorized**, and a **white precipitate** forms." },
+          { label: "Product", text: "**2,4,6-tribromophenol**." }
+        ]
+      }
+    ]
   }
 ];
